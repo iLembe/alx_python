@@ -1,10 +1,19 @@
 def update_dictionary(a_dictionary, key, value):
     if key in a_dictionary:
-        a_dictionary[key].append(value)
+        a_dictionary[key] = value
     else:
-        a_dictionary[key] = [value]
+        a_dictionary[key] = value
 
-for k, v in a_dictionary.items():
-    print(f"{k}: {v}")
+def print_sorted_dictionary(my_dict):
+    sorted_keys = sorted(my_dict.keys())
+    for key in sorted_keys:
+        print("{}: {}".format(key, my_dict[key]))
 
-print("xx") 
+a_dictionary = {}
+update_dictionary(a_dictionary, 'a', 'a')
+
+print_sorted_dictionary(a_dictionary)
+print("xx")
+
+update_dictionary(a_dictionary, 'a', 'a')
+print_sorted_dictionary(a_dictionary)
