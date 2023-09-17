@@ -1,1 +1,6 @@
-def print_matrix_integer(matrix=[[]]):\n    for row in matrix:\n        for i, num in enumerate(row):\n            if i == len(row) - 1:\n                print("{:d}".format(num))\n            else:\n                print("{:d}".format(num), end=" ")\n\n# Example usage:\nmatrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]\nprint_matrix_integer(matrix)
+#!/usr/bin/env python3
+def print_matrix_integer(matrix=[[]]):
+    for row in matrix:
+        for element in row:
+            print("{:d}".format(element), end=" " if element != row[-1] else "")
+        print()
