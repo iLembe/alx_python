@@ -8,4 +8,4 @@ def raise_exception_msg(message=""):
 
 raise_exception_msg("Python is cool")
 raise_exception_msg("C is fun")
-raise_exception_msg("")
+#raise_exception_msg("")
