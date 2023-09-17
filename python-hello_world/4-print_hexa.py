@@ -1,3 +1,2 @@
-for i in range(99):
-    print("{:02d}, ".format(i), end="")
-print("99")
+for number in range(99):
+    print(f"{number} in decimal is {number} in hexadecimal is {number:x}")
