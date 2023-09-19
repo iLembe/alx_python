@@ -64,6 +64,7 @@ class Rectangle(Base):
             raise ValueError("x must be >= 0")
         self.__x = value
 
+
     @property
     def y(self):
         """Getter method for y-coordinate."""
