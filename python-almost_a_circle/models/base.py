@@ -1,7 +1,7 @@
 #!/usr/bin/python3
+"""Base class for managing id attribute in all other classes."""
 
 class Base:
-    """Base class for managing id attribute in all other classes."""
     
     # Private class attribute
     __nb_objects = 0
