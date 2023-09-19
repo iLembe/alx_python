@@ -4,6 +4,7 @@
 from models.base import Base
 
 class Rectangle(Base):
+    
     """Rectangle class, inherits from Base."""
     
     def __init__(self, width, height, x=0, y=0, id=None):
@@ -83,9 +84,11 @@ class Rectangle(Base):
         return self.__width * self.__height
 
     def display(self):
-        """Display the rectangle using '#' characters."""
+        """Display the rectangle using '#' characters with respect to x and y."""
+        for i in range(self.__y):
+            print()
         for i in range(self.__height):
-            print("#" * self.__width)
+            print(" " * self.__x + "#" * self.__width)
 
     def __str__(self):
         """Return a string representation of the Rectangle instance."""
