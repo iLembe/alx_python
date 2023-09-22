@@ -31,7 +31,7 @@ if __name__ == "__main__":
             request_id = response.headers['X-Request-Id']
             print(request_id)
         else:
-            print("")
+            print("None")
 
     except requests.exceptions.RequestException as e:
         print("Error:", e)
