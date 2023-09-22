@@ -1,6 +1,11 @@
 import requests
 
 if __name__ == "__main__":
+    """
+    This script fetches the URL 'https://alu-intranet.hbtn.io/status' using the 'requests' package
+    and displays the body of the response with tabulation.
+    """
+
     url = "https://alu-intranet.hbtn.io/status"
     response = requests.get(url)
 
