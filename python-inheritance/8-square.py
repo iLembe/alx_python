@@ -4,6 +4,13 @@ A docstring is needed here
 """
 #!/usr/bin/python3
 
+from importlib import import_module
+
+module_name = '7-rectangle.py'
+module = import_module(module_name)
+Rectangle = module.Rectangle
+
+
 class Square(Rectangle):
     """Square class that inherits from Rectangle."""
 

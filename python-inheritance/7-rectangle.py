@@ -4,6 +4,13 @@ A docstring is needed here
 """
 #!/usr/bin/python3
 
+from importlib import import_module
+
+module_name = '5-base_geometry'
+module = import_module(module_name)
+BaseGeometry = module.BaseGeometry
+
+
 class Rectangle(BaseGeometry):
     """Rectangle class that inherits from BaseGeometry."""
 
