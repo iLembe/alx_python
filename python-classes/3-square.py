@@ -1,3 +1,8 @@
+"""Initialize a square.
+
+Args:
+    size (int): The size of the square (default 0).
+"""
 #!/usr/bin/python3
 
 class Square:
