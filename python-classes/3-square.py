@@ -6,6 +6,11 @@ Args:
 #!/usr/bin/python3
 
 class Square:
+    """Initialize a square.
+
+Args:
+    size (int): The size of the square (default 0).
+"""
     def __init__(self, size=0):
         """Initialize a square.
 

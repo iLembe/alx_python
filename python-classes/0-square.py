@@ -9,6 +9,10 @@ There should be a docString here
 #!/usr/bin/python3
 
 class Square:
+    """
+There should be a docString here
+
+"""
     def __init__(self, size=0):
         self.__size = size
 
