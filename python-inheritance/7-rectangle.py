@@ -3,12 +3,26 @@ A docstring is needed here
 
 """
 #!/usr/bin/python3
+#!/usr/bin/python3
 
-from importlib import import_module
+class BaseGeometry:
+    """Empty class for BaseGeometry."""
 
-module_name = '5-base_geometry'
-module = import_module(module_name)
-BaseGeometry = module.BaseGeometry
+    def area(self):
+        """Method to calculate the area."""
+        raise Exception("area() is not implemented")
+
+    def integer_validator(self, name, value):
+        """Method to validate integers.
+
+        Args:
+            name (str): The name of the attribute.
+            value (int): The value to validate.
+        """
+        if type(value) is not int:
+            raise TypeError(name + " must be an integer")
+        if value <= 0:
+            raise ValueError(name + " must be greater than 0")
 
 
 class Rectangle(BaseGeometry):
@@ -20,9 +34,6 @@ class Rectangle(BaseGeometry):
         Args:
             width (int): The width of the rectangle.
             height (int): The height of the rectangle.
-
-        Raises:
-            ValueError: If width or height is not a positive integer.
         """
         self.integer_validator("width", width)
         self.integer_validator("height", height)
@@ -30,11 +41,7 @@ class Rectangle(BaseGeometry):
         self.__height = height
 
     def area(self):
-        """Calculate and return the area of the rectangle.
-
-        Returns:
-            int: The area of the rectangle.
-        """
+        """Calculate and return the area of the rectangle."""
         return self.__width * self.__height
 
     def __str__(self):
