@@ -43,7 +43,7 @@ if __name__ == "__main__":
             else:
                 print("Failed to fetch user ID.")
         else:
-            print("Failed to authenticate with GitHub. Status code:", response.status_code)
+            print("None")
 
     except requests.exceptions.RequestException as e:
         print("Error:", e)
