@@ -39,7 +39,7 @@ if __name__ == "__main__":
             user_info = response.json()
             user_id = user_info.get("id")
             if user_id is not None:
-                print("Your GitHub user ID is:", user_id)
+                print(user_id)
             else:
                 print("Failed to fetch user ID.")
         else:
