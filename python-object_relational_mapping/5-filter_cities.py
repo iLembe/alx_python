@@ -23,17 +23,16 @@ if __name__ == "__main__":
         cursor = db.cursor()
 
         # Execute the SQL query to select cities of the specified state and sort by id
-        cursor.execute("SELECT cities.id, cities.name, states.name FROM cities JOIN states "
-                       "ON cities.state_id = states.id "
+        cursor.execute("SELECT GROUP_CONCAT(cities.name SEPARATOR ', ') "
+                       "FROM cities JOIN states ON cities.state_id = states.id "
                        "WHERE states.name = %s "
                        "ORDER BY cities.id ASC", (state_name,))
 
-        # Fetch all the rows
-        rows = cursor.fetchall()
+        # Fetch the result
+        result = cursor.fetchone()
 
-        # Display the results
-        for row in rows:
-            print(row)
+        if result[0]:
+            print(result[0])
 
     except MySQLdb.Error as e:
         print("MySQL Error: {}".format(e))
