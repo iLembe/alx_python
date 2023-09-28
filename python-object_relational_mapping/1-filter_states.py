@@ -13,11 +13,19 @@ if __name__ == "__main__":
 
     try:
         # Connect to the MySQL server
-        db = MySQLdb.connect(host="localhost", port=3306, user=username, passwd=password, db=database)
+        db = MySQLdb.connect(
+            host="localhost",
+            port=3306,
+            user=username,
+            passwd=password,
+            db=database
+        )
         cursor = db.cursor()
 
-        # Execute the SQL query to select states starting with 'N'
-        cursor.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
+        # Execute the SQL query to select the state starting with 'N' and having the highest id
+        cursor.execute(
+            "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id DESC LIMIT 1"
+            )
 
         # Fetch all the rows
         rows = cursor.fetchall()
