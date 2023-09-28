@@ -2,6 +2,15 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from model_state import State, Base
 
+
+"""
+    State class representing a state in the database.
+
+    Attributes:
+        id (int): An auto-generated, unique integer identifier.
+        name (str): The name of the state, up to 128 characters.
+    """
+
 class State(Base):
     """
     State class representing a state in the database.
