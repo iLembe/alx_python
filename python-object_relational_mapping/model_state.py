@@ -2,6 +2,15 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from model_state import State, Base
 
+class State(Base):
+    """
+    State class representing a state in the database.
+
+    Attributes:
+        id (int): An auto-generated, unique integer identifier.
+        name (str): The name of the state, up to 128 characters.
+    """
+
 # Replace 'your_username', 'your_password', and 'your_database' with your MySQL credentials.
 engine = create_engine('mysql://your_username:your_password@localhost:3306/your_database')
 Base.metadata.create_all(engine)
