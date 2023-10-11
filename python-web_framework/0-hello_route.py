@@ -4,7 +4,7 @@ This is a simple Flask web application that displays 'Hello HBNB!' on the root U
 
 from flask import Flask
 
-app = Flask(__name)
+app = Flask(__name__)
 
 # Route definition with strict_slashes=False
 @app.route('/', strict_slashes=False)
