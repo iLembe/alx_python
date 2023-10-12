@@ -28,6 +28,7 @@ def gather_employee_data(employee_id):
         # Print the titles of completed tasks
         for task in completed_tasks:
             print(f"\t{task['title']}")
+
     except requests.exceptions.RequestException as e:
         print(f"An error occurred: {e}")
 
