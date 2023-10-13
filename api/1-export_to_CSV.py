@@ -1,6 +1,7 @@
 import csv
 import requests
 import sys
+import os
 
 def gather_employee_data(employee_id):
     employee_url = f"https://jsonplaceholder.typicode.com/users/{employee_id}"
@@ -25,6 +26,7 @@ def gather_employee_data(employee_id):
         employee_name = employee_data["name"]
         user_id = employee_data["id"]
         completed_tasks = [task for task in todos_data if task["completed"]]
+        total_tasks = len(todos_data)
 
         # Prepare data for CSV
         csv_data = []
@@ -35,12 +37,21 @@ def gather_employee_data(employee_id):
 
         # Write to CSV
         csv_filename = f"{user_id}.csv"
-        with open(csv_filename, mode="w", newline="") as csv_file:
+
+        if not os.path.isfile(csv_filename):
+            with open(csv_filename, mode="w", newline="") as csv_file:
+                csv_writer = csv.writer(csv_file)
+                csv_writer.writerow(["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"])
+        with open(csv_filename, mode="a", newline="") as csv_file:
             csv_writer = csv.writer(csv_file)
-            csv_writer.writerow(["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"])
             csv_writer.writerows(csv_data)
 
-        print(f"CSV file '{csv_filename}' has been created.")
+        print(f"Employee {employee_name} is done with tasks ({len(completed_tasks)}/{total_tasks}):")
+
+        for i, task in enumerate(completed_tasks, start=1):
+            print(f"Task {i}: {task['title']}")
+
+        print(f"\nCSV file '{csv_filename}' has been created.")
 
     except requests.exceptions.RequestException as e:
         print(f"An error occurred: {e}")
