@@ -1,6 +1,6 @@
+import csv
 import requests
 import sys
-import csv
 
 def gather_employee_data(employee_id):
     employee_url = f"https://jsonplaceholder.typicode.com/users/{employee_id}"
@@ -24,7 +24,7 @@ def gather_employee_data(employee_id):
 
         employee_name = employee_data["name"]
         user_id = employee_data["id"]
-        completed_tasks = [task for task in todos_data if task["completed"]
+        completed_tasks = [task for task in todos_data if task["completed"]]
 
         # Prepare data for CSV
         csv_data = []
