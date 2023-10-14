@@ -7,8 +7,8 @@ Requirements:
 - File name must be: todo_all_employees.json
 """
 
-import requests
 import json
+import requests
 
 def gather_all_employee_data():
     base_url = "https://jsonplaceholder.typicode.com/users"
