@@ -10,9 +10,9 @@ Requirements:
 - File name must be: USER_ID.csv
 """
 
+import csv
 import requests
 import sys
-import csv
 
 def gather_employee_data(employee_id):
     employee_url = f"https://jsonplaceholder.typicode.com/users/{employee_id}"
