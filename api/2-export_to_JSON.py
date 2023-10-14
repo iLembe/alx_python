@@ -1,3 +1,15 @@
+"""
+This script gathers employee data from the JSONPlaceholder API and exports the tasks for a specific employee to a CSV file.
+
+Usage:
+python 1-export_to_CSV.py <employee_id>
+
+Requirements:
+- Records all tasks that are owned by this employee
+- Format must be: "USER_ID","USERNAME","TASK_COMPLETED_STATUS","TASK_TITLE"
+- File name must be: USER_ID.csv
+"""
+
 import requests
 import sys
 import csv
