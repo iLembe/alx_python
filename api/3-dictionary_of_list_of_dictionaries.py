@@ -24,7 +24,7 @@ def gather_all_employee_data():
             employee_id = employee["id"]
             employee_name = employee["username"]
 
-            todos_url = f"https://jsonplaceholder.typicode.com/users/{employee_id}/todos"
+            todos_url = f"https://jsonplaceholder.typicode.com/todos?userId={employee_id}"
             todos_response = requests.get(todos_url)
             todos_response.raise_for_status()
             todos_data = todos_response.json()
@@ -42,8 +42,9 @@ def gather_all_employee_data():
 
         # Ensure all users are included even if they have no tasks
         for employee in employees_data:
-            if employee["id"] not in all_employee_data:
-                all_employee_data[employee["id"]] = []
+            employee_id = employee["id"]
+            if employee_id not in all_employee_data:
+                all_employee_data[employee_id] = []
 
         # Export data to JSON file
         with open("todo_all_employees.json", "w") as json_file:
