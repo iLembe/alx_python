@@ -40,6 +40,11 @@ def gather_all_employee_data():
 
             all_employee_data[employee_id] = employee_tasks
 
+        # Ensure all users are included even if they have no tasks
+        for employee in employees_data:
+            if employee["id"] not in all_employee_data:
+                all_employee_data[employee["id"]] = []
+
         # Export data to JSON file
         with open("todo_all_employees.json", "w") as json_file:
             json.dump(all_employee_data, json_file, indent=4)
